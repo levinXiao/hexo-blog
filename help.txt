@@ -1,0 +1,5 @@
+1.hexo generate
+
+1.新建一个post
+$hexo new [layout] <title>
+eg:hexo new post "title"
