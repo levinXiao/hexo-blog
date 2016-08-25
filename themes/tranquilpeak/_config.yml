@@ -47,6 +47,10 @@ sidebar:
             title: global.archives
             url: /archives
             icon: archive
+        picture:
+            title: global.picture
+            url: http://clantu.com/s/Gm4VHX
+            icon: file-image-o
         search:
             title: global.search
             url: /#search
@@ -62,10 +66,10 @@ sidebar:
             title: global.github
             url: https://github.com/levinXiao
             icon: github
-        weibo:
-            title: global.weibo
-            url: http://weibo.com/u/2389899365
-            icon: weibo
+        # weibo:
+        #     title: global.weibo
+        #     url: http://weibo.com/u/2389899365
+        #     icon: weibo
         # stack_overflow:
         #     title: global.stack_overflow
         #     url: http://stackoverflow.com/users
