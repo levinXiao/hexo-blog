@@ -9,10 +9,11 @@ categories: linux
 ##概述
 
 因为国内网络的问题 下载minecraft服务器的时候 在aliyun上面实在是忍不了
-但是也很无奈 
+但是也很无奈
 
+<!-- more -->
 
-所以我借鉴了国外的一位大神的项目[github](https://github.com/itzg/dockerfiles/tree/master/minecraft-server)  修改了一下dockerfile 
+所以我借鉴了国外的一位大神的项目[github](https://github.com/itzg/dockerfiles/tree/master/minecraft-server)  修改了一下dockerfile
 
 由于mac下并且从小受到的支持盗版的奇怪熏陶的原因 我暂时能够找到的某种意义上免费最高版本的minecraft客户端只到1.8.1 而且还找不到forge  实在是无奈
 
@@ -20,14 +21,14 @@ categories: linux
 所以这个项目的version被我写死到了1.8.1
 
 
-我自己翻墙下载了一些需要下载的jar包 然后在七牛云上保存 然后再替换进去 说实话 技术含量实在是低的可以 
+我自己翻墙下载了一些需要下载的jar包 然后在七牛云上保存 然后再替换进去 说实话 技术含量实在是低的可以
 
 但是不得不说非常有效 hahah
 
 
-下面标出我修改的地方 
+下面标出我修改的地方
 
-start.mincecraft.sh  文件是主要修改的文件 
+start.mincecraft.sh  文件是主要修改的文件
 
 
 1. 第127行 function installVanilla 方法

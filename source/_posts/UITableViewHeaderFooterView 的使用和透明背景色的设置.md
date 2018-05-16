@@ -8,7 +8,9 @@ categories: iOS
 
 我们知道UITableView有代理方法设置每个section的headerview和footerview
 
-为了减少UITableView的内存开销 
+为了减少UITableView的内存开销
+
+<!-- more -->
 
 Apple引入了UITableViewHeaderFooterView这个类 这个类是在iOS 6 的时候加入 和UITableViewCell这个类一样 这个类由reuseIdentifier 这个概念
 所以初始化方法也和UITableViewCell类似了
@@ -67,7 +69,7 @@ NS_ASSUME_NONNULL_END
             [headView.contentView addSubview:tableHeaderLabel];
         }
         tableHeaderLabel.text = @"title";
-        
+
         UIView *lineView = [headView viewWithTag:10002];
         if (!lineView) {
             lineView = [[UIView alloc] init];
@@ -76,7 +78,7 @@ NS_ASSUME_NONNULL_END
             lineView.backgroundColor = RGBAColor(118, 134, 147, 0.2);
             [headView addSubview:lineView];
         }
-        
+
         UIView *bottomLineView = [headView viewWithTag:10003];
         if (!bottomLineView) {
             bottomLineView = [[UIView alloc] init];

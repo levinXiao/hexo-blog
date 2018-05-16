@@ -5,12 +5,13 @@ tags: [iOS,oc]
 categories: iOS
 ---
 
+# iOS 中 copy 和 mutableCopy 以及 one-level-deep-copy 进阶
 对 copy 和 mutableCopy 的概念还有一些不了解的同学，可以看看这篇文章
 <https://www.jianshu.com/p/700f58eb0b86>
 
 有了上面的了解之后，我们看看这段代码
 
-```
+```objective-c
 NSMutableArray *eleInMutable = [NSMutableArray arrayWithObject:@"1"];
 //二维数组
 NSMutableArray *array1 = [NSMutableArray arrayWithObject:eleInMutable];
@@ -18,12 +19,14 @@ NSMutableArray *array1 = [NSMutableArray arrayWithObject:eleInMutable];
 NSMutableArray *array2 = array1.mutableCopy;
 //像二维数组的第一个元素数组添加一个2
 [array2[0] addObject:@"2"];
-    
+
 printPointer(array1);
 /* print result :  0x10070ec50 */
 printPointer(array2);
 /* print result :  0x10070ec80 */
-``` 
+```
+
+<!-- more -->
 
 在这里我们可以看到 pointer 的结果却是是不一样的。
 
@@ -31,7 +34,7 @@ printPointer(array2);
 
 如果我们打印 array1 和 array2 的结果
 
-```
+```objective-c
 printArray(array1);
 /* print result :  [["1","2"]] */
 printArray(array2);
@@ -44,7 +47,8 @@ printArray(array2);
 
 不死心的我打印了 array1 和 array2 这两个二维数组的子数组的指针
 
-```
+
+```objective-c
 printPointer(array1[0]);
 /* print result :  0x10070ee40 */
 printPointer(array2[0]);
@@ -57,19 +61,19 @@ printPointer(array2[0]);
 
 查看了[苹果官方文档](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Collections/Articles/Copying.html#//apple_ref/doc/uid/TP40010162-SW3)后，找到了对应的说明
 
-```
-There are two ways to make deep copies of a collection. 
-You can use the collection’s equivalent of initWithArray:copyItems: with YES as the second parameter. 
-If you create a deep copy of a collection in this way, 
-each object in the collection is sent a copyWithZone: message. 
-If the objects in the collection have adopted the NSCopying protocol, 
-the objects are deeply copied to the new collection, 
-which is then the sole owner of the copied objects. 
-If the objects do not adopt the NSCopying protocol, 
-attempting to copy them in such a way results in a runtime error. 
-However, copyWithZone: produces a shallow copy. 
-This kind of copy is only capable of producing a one-level-deep copy. 
-If you only need a one-level-deep copy, 
+```objective-c
+There are two ways to make deep copies of a collection.
+You can use the collection’s equivalent of initWithArray:copyItems: with YES as the second parameter.
+If you create a deep copy of a collection in this way,
+each object in the collection is sent a copyWithZone: message.
+If the objects in the collection have adopted the NSCopying protocol,
+the objects are deeply copied to the new collection,
+which is then the sole owner of the copied objects.
+If the objects do not adopt the NSCopying protocol,
+attempting to copy them in such a way results in a runtime error.
+However, copyWithZone: produces a shallow copy.
+This kind of copy is only capable of producing a one-level-deep copy.
+If you only need a one-level-deep copy,
 you can explicitly call for one as in Listing 2
 ```
 
@@ -90,7 +94,8 @@ one-level-deep copy 从字面上理解，可以理解为单层深复制。
 
 方法1：
 
-```
+
+```objective-c
 NSArray *deepCopyArray=[[NSArray alloc] initWithArray:someArray copyItems:YES];
 ```
 
@@ -99,10 +104,10 @@ NSArray *deepCopyArray=[[NSArray alloc] initWithArray:someArray copyItems:YES];
 
 方法2：
 
-```
+
+```objective-c
 NSArray* trueDeepCopyArray = [NSKeyedUnarchiver unarchiveObjectWithData:
           [NSKeyedArchiver archivedDataWithRootObject:oldArray]];
-
 ```
 
 注意：要使用 NSKeyedUnarchiver 序列化对象要对对象实现 NSCoding 协议，当然，Foundation 库的 **类集合元素（NSArray及其子类,NSSet及其子类,NSDictionary及其子类）** 都实现了 NSCoding 协议
@@ -116,7 +121,8 @@ NSArray* trueDeepCopyArray = [NSKeyedUnarchiver unarchiveObjectWithData:
 
 示例代码：
 
-```
+
+```objective-c
 NSMutableArray *eleInMutable = [NSMutableArray arrayWithObject:@"1"];
 //二维数组
 NSMutableArray *array1 = [NSMutableArray arrayWithObject:eleInMutable];
@@ -131,19 +137,15 @@ printPointer(array1);
 /* print result :  0x10070ec50 */
 printPointer(array2);
 /* print result :  0x10070ec80 */
-    
+
 printArray(array1);
 /* print result :  [["1","2"]] */
 printArray(array2);
 /* print result :  [["1","2"]] */
-    
-    
+
+
 printPointer(array1[0]);
 /* print result :  0x10070ee40 */
 printPointer(array2[0]);
 /* print result :  0x10070ee40 */
 ```
-
-
-
-

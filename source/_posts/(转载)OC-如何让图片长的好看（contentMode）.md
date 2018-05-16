@@ -6,21 +6,22 @@ categories: iOS
 ---
 转载至CSDN http://blog.csdn.net/yi_zz32/article/details/50381762
 
-我们在开发中，经常要在view，tableView，等显示图片，比如我们发微博（带有图片的），那么我们常常要考虑如何处理这些图片，是否拉伸，拉伸到什么样的效果等等，常常是需要考虑的问题
+我们在开发中，经常要在view，tableView，等显示图片，比如我们发微博（带有图片的），那么我们常常要考虑如何处理这些图片，是否拉伸，拉伸到什么样的效果等等，常常是需要考虑的问题。
+<!-- more -->
 其实主要的还是要理解UIImageView的ContentMode的这些参数，这些参数一般就能满分我们的开发需求
 
 ```
 
- UIViewContentModeScaleToFill, 
- UIViewContentModeScaleAspectFit, // contents scaled to fit with fixed aspect. remainder is transparent 
+ UIViewContentModeScaleToFill,
+ UIViewContentModeScaleAspectFit, // contents scaled to fit with fixed aspect. remainder is transparent
  UIViewContentModeScaleAspectFill, // contents scaled to fill with fixed aspect. some portion of content may be clipped.   
- UIViewContentModeRedraw, // redraw on bounds change (calls -setNeedsDisplay) UIViewContentModeCenter, // contents remain same size. positioned adjusted. UIViewContentModeTop, 
- UIViewContentModeBottom, 
- UIViewContentModeLeft, 
- UIViewContentModeRight, 
- UIViewContentModeTopLeft, 
- UIViewContentModeTopRight, 
- UIViewContentModeBottomLeft, 
+ UIViewContentModeRedraw, // redraw on bounds change (calls -setNeedsDisplay) UIViewContentModeCenter, // contents remain same size. positioned adjusted. UIViewContentModeTop,
+ UIViewContentModeBottom,
+ UIViewContentModeLeft,
+ UIViewContentModeRight,
+ UIViewContentModeTopLeft,
+ UIViewContentModeTopRight,
+ UIViewContentModeBottomLeft,
  UIViewContentModeBottomRight,
 ```
 

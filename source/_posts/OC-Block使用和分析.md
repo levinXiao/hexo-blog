@@ -17,8 +17,8 @@ void (^printBlock)() = ^(){
 printBlock();
 
 printBlock(9);
-    
-    
+
+
 int mutiplier = 7;
 //（3）定义名为myBlock的代码块，返回值类型为int
 int (^myBlock)(int) = ^(int num){
@@ -28,9 +28,11 @@ int (^myBlock)(int) = ^(int num){
 //使用定义的myBlock
 int newMutiplier = myBlock(3);
 printf("newMutiplier is %d",myBlock(3));
-    
+
 
 ```
+
+<!-- more -->
 
 ###定义在-viewDidLoad方法外部
 
@@ -87,7 +89,7 @@ __block int x = 100;
 ```
 @interface NextViewController : UIViewController
 @property (nonatomic, copy) void (^NextViewControllerBlock)(NSString *tfText);
- 
+
 @end
 //NextViewContorller.m 文件
 - (IBAction)popBtnClicked:(id)sender {
@@ -290,7 +292,7 @@ TypeName blockName = ^returnType(parameters) {...};
     if (self.delegate && [self.delegate respondsToSelector:@selector(pushToNewPage)]) {
         [self.delegate pushToNewPage];
     }
-    
+
     //这是现在我们要说的block    
     if (ButtonBlock) {
         ButtonBlock();
@@ -311,7 +313,7 @@ TypeName blockName = ^returnType(parameters) {...};
     cell.text1Label.text = [self.textArray objectAtIndex:indexPath.row];
     //delegate的不可缺少的代码，这里放在这儿只是为了给各位类比一下
     cell.delegate = self;
-    
+
     //ButtonBlock不可缺少的代码
     cell.ButtonBlock = ^{
         [self pushToNewPage2];

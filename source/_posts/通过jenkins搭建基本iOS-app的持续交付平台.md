@@ -6,6 +6,8 @@ tags: [macOS,iOS]
 
 平时我们开发完成IOS项目，需要打包给测试人员进行测试。其中的过程需要重复进行：修改配置项--编译---连接设备--运行打包--debug进设备中--然后交给等待的测试人员。现有成熟的持续集成Jenkins解决方案，并且该方案也提供了Xcode插件的支持，可以讲上述过程封装成一键解决方案。
 
+<!-- more -->
+
 # 安装jenkins
 ##	java环境准备
 jenkins主要依赖的java环境 所以确保电脑中java环境准确就绪支撑软件
@@ -36,7 +38,7 @@ $ -bash: java: command not found
 ##	在mac上安装jenkins
 ###	安装HomeBrew
 jenkins依赖HomeBrew包管理,所以我们要先安装homebrew,
-若已安装则跳转,查看方法 
+若已安装则跳转,查看方法
 
 ```
 $ brew -v
@@ -73,7 +75,7 @@ $ brew install jenkins
 fastlane和fir-CLI是一组工具套件,旨在实现iOS应用发布的自动化,并且提供一个良好的持续集成和部署流程,只需要一个点击或者一个命令就可以触发这个流程
 项目地址
 
-[fastlane(github)](https://github.com/fastlane/fastlane) 
+[fastlane(github)](https://github.com/fastlane/fastlane)
 
 [fir-CLI(github)](https://github.com/FIRHQ/fir-cli/)
 shenzhen已经由一年以上没有更新了,很多功能都并不是很好用了,所以在这里我们才会安装fastlane这个工具,截止到2016年07月,fastlane工具还是可以上传到itc的
@@ -167,7 +169,7 @@ screenshots
 ```
 
 这其中最重要的也是和上传相关最大关联的文件就是**Fastfile**和**metadata**文件夹中的**zh-Hans**文件夹中的内容
-其中: 
+其中:
 **description.txt**:描述这个app的文本文档
 
 **keywords.txt**:appstore ASO(搜索关键字)
@@ -200,7 +202,7 @@ $ jenkins –h
 
 如果所有的配置都是在正确的,那么你会看到主界面
 
-顾名思义: 
+顾名思义:
 
 
 |  |  |
@@ -261,7 +263,7 @@ di="${HOME}/jenkins/app/${JOB_NAME}/${en}/"
 name="mvs_${en}-${BUILD_NUMBER}-`date \"+%m月%d日%H时%M分\"`.ipa"
 #ci环境变量路径
 cienvpath="${WORKSPACE}/MVS/ci.env"
-#修改ci.env的值 
+#修改ci.env的值
 echo "{\"env\":\"${en}\"}">$cienvpath
 #修改应用名称
 sed -i '' -e "s/优服365/优服365_${en}/g" ${WORKSPACE}/MVS/Info.plist
@@ -355,7 +357,7 @@ upload2Appstore.sh 这个文件是随着svn一起down下来的
 #1.usr/bin/env bash
 
 cienvpath="MVS/ci.env"
-#修改ci.env的值 
+#修改ci.env的值
 echo "{\"env\":\"production\"}">$cienvpath
 
 rm -f MVS.ipa
@@ -364,5 +366,3 @@ rm -f MVS.app.dSYM.zip
 fastlane ios appstore
 
 ```
-
-

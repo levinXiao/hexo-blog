@@ -9,36 +9,37 @@ categories: iOS
 在从iOS8到iOS9的升级过程中，弹出提示框的方式有了很大的改变，在Xcode7 ，iOS9.0的SDK中，已经明确提示不再推荐使用UIAlertView，而只能使用UIAlertController，我们通过代码来演示一下。
 我通过点击一个按钮，然后弹出提示框，代码示例如下：
 
+<!-- more -->
 ```
 #import "ViewController.h"  
-  
+
 @interface ViewController ()  
-  
+
 @property(strong,nonatomic) UIButton *button;  
-  
+
 @end  
-  
+
 @implementation ViewController  
-  
+
 - (void)viewDidLoad {  
   [super viewDidLoad];  
-    
+
   self.button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, [[UIScreen mainScreen] bounds].size.width, 20)];  
   [self.button setTitle:@"跳转" forState:UIControlStateNormal];  
   [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];  
   [self.view addSubview:self.button];  
-    
+
   [self.button addTarget:self action:@selector(clickMe:) forControlEvents:UIControlEventTouchUpInside];  
-    
+
 }  
-  
+
 -(void)clickMe:(id)sender{  
-    
+
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"按钮被点击了" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil nil];  
     [alert show];  
-    
+
 }  
-  
+
 @end  
 
 
@@ -56,11 +57,11 @@ categories: iOS
 ```
 //初始化提示框；  
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"按钮被点击了" preferredStyle:  UIAlertControllerStyleAlert];  
-    
+
   [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {  
     //点击按钮的响应事件；  
   }]];  
-    
+
   //弹出提示框；  
   [self presentViewController:alert animated:true completion:nil];  
 

@@ -1,12 +1,14 @@
 ---
 title: oc下实现局域网udp广播通讯使用开源框架GCDAsyncUdpSocket
-date: 2016-08-06 21:11:10
+date: 2016-03-29 21:11:10
 tags: [oc,socket,GCDAsyncUdpSocket,tcp]
 categories: iOS
 ---
 #UDP简介
 
 UDP是OSI参考模型中一种无连接的传输层协议，它主要用于不要求分组顺序到达的传输中，分组传输顺序的检查与排序由应用层完成，提供面向事务的简单不可靠信息传送服务。
+
+<!-- more -->
 
 UDP 协议基本上是IP协议与上层协议的接口。UDP协议适用端口分别运行在同一台设备上的多个应用程序。udp协议通信在发送数据包的时候是不用绑定端口的，系统会自动分配端口，只有在发送消息的时候才需要绑定端口。
 
@@ -91,7 +93,7 @@ withTimeout:(NSTimeInterval)timeout tag:(long)tag;
     NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
 
 //host是在服务端设置的host，port也是服务端绑定的port，上文说过如果客户端不需要接收消息，就不用绑定端口
-  
+
     [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
 
     NSLog(@"SENT (%i): %@", (int)tag, msg);
@@ -161,7 +163,7 @@ withTimeout:(NSTimeInterval)timeout tag:(long)tag;
         NSLog(@"Error joinMulticastGroup (bind): %@", error);
 
         return;
-  
+
     }
 
     if (![udpServer beginReceiving:&error]) {

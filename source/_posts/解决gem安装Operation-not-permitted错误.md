@@ -17,6 +17,8 @@ tags: [macOS,gem]
 * /sbin
 * /usr (except /usr/local)
 
+<!-- more -->
+
 只有Apple自身签名的软件（含命令行工具）可以。
 
 ###### 详细说明：

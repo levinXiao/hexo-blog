@@ -11,6 +11,9 @@ categories: iOS
 之前一直以为addObserverForName:object:queue:usingBlock的释放是和addObserver:selector:@selector()name:object:的释放处理逻辑是一样的
 
 后来测试了一下 发现并不是这样
+
+<!-- more -->
+
 查看文档
 
 ```

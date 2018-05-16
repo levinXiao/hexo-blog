@@ -1,6 +1,6 @@
 ---
 title: iOS图片拉伸技巧—— resizableImageWithCapInsets
-date: 2016-08-06 21:14:52
+date: 2017-05-12 21:14:52
 tags: [iOS,oc,图片处理]
 categories: iOS
 ---
@@ -10,6 +10,8 @@ categories: iOS
 ```
  [UIImage resizableImageWithCapInsets:(UIEdgeInset){#top#,#left#,#bottom#,#right#}]
 ```
+
+<!-- more -->
 
 UIEdgeInset 是一个结构体 定义如下:
 ```

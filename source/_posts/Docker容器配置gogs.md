@@ -4,10 +4,10 @@ date: 2016-08-06 21:14:52
 tags: [docker,gogs,git]
 categories: linux
 ---
-#gogs介绍 
+#gogs介绍
 https://gogs.io/
 
-#docker方式部署gogs 
+#docker方式部署gogs
 https://github.com/gogits/gogs/tree/master/docker
 
 ```

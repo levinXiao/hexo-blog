@@ -8,6 +8,8 @@ https://github.com/dzenbot/DZNEmptyDataSet
 
 DZNEmptyDataSet是一个下拉式的UITableView/UICollectionView父类，在没有内容要显示时使用Empty DataSet模式。
 
+<!-- more -->
+
 大多数应用程序都会显示内容列表（datasets），但是某些情况下可能会是空的，尤其是新用户的账户信息。一旦产生错误或bug，空白屏幕会使用户困惑，不知道要做什么，所以Empty DataSet模式应该能够给用户提示相关信息。
 
 Empty DataSet模式的好处：

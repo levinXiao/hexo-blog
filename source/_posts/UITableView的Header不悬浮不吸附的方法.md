@@ -6,6 +6,8 @@ categories: iOS
 ---
 当 UITableView 的 style 属性设置为 Plain 时，这个tableview的section header在滚动时会默认悬停在界面顶端。
 
+<!-- more -->
+
 ```
 
 #pragma mark - UIScrollViewDelegate

@@ -1,17 +1,20 @@
 ---
 title: OC 一些用过的觉得还不错的开源库
-date: 2016-08-08 15:51:09
+date: 2018-01-08 15:51:09
 tags: [oc,iOS]
 categories: iOS
 ---
-# AFNetWorking 
+# AFNetWorking
 https://github.com/AFNetworking/AFNetworking
 # AYPageControlView     
 https://github.com/AYJk/AYPageControl
 这个是pagecontroll的动画封装库  该库实现了一个滑动的动画效果
-# DZNEmptyDataSet 
+# DZNEmptyDataSet
 https://github.com/dzenbot/DZNEmptyDataSet
 这个是tableview加载空数据的时候能够用上的一个库
+
+<!-- more -->
+
 # ZXingObjC
 https://github.com/TheLevelUp/ZXingObjC
 二维码生成和使用使用的库

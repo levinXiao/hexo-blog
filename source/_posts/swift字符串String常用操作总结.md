@@ -16,6 +16,8 @@ let str4=String() //空字符串
 
 ```
 
+<!-- more -->
+
 * 字符的定义
 ```
 var char1:Character="m" //字符变量
@@ -92,8 +94,8 @@ let chr=str[str.startIndex.advancedBy(2)] //Swift 2.0 //chr:Character="n"
 * 计算字符串长度length
 ```
 let str="@你好啊"
-let len1=count(str) //swift 1.2 //=4 
-let len2=str.characters.count //swift 2.0 //=4 
+let len1=count(str) //swift 1.2 //=4
+let len2=str.characters.count //swift 2.0 //=4
 let blen=str.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) //=10
 
 ```
@@ -203,7 +205,7 @@ str2=str2.stringByReplacingOccurrencesOfString("你好啊", withString: "Mandara
 //str2="hello, Mandarava."
 string转换为Int/Long/Float/Double/Bool等
 var str1="100"
-var i=str1.toInt()! //Swift 1.2 //=100 
+var i=str1.toInt()! //Swift 1.2 //=100
 var i=(str1 as NSString).integerValue //Swift 2.0 //=100
 var i=(str1 as NSString).intValue //=100
 var l=(str1 as NSString).longLongValue //=100

@@ -14,6 +14,8 @@ EasyPR是一个中文的开源车牌识别系统,其目标是成为一个简单�
 * 它能够识别中文。例如车牌为苏EUK722的图片，它可以准确地输出std:string类型的"苏EUK722"的结果。
 * 它的识别率较高。图片清晰情况下，车牌检测与字符识别可以达到80%以上的精度。
 
+<!-- more -->
+
 最重要的是 这个是由**国人**开源的
 
 [easyPR github地址](https://github.com/liuruoze/EasyPR)
@@ -67,12 +69,12 @@ EasyPR是一个中文的开源车牌识别系统,其目标是成为一个简单�
     pr.setDebug(false);
     pr.setMaxPlates(4);
     pr.setDetectType(easypr::PR_DETECT_CMSER);
-    
+
     //conver image to source_image
     //转换图片
     UIImage *temp_image=[UIImageCVMatConverter scaleAndRotateImageBackCamera:image];
     source_image =[UIImageCVMatConverter cvMatFromUIImage:temp_image];
-    
+
     //start recognize
     //开始识别
     vector<CPlate> plateVec;
@@ -118,4 +120,3 @@ EasyPR是一个中文的开源车牌识别系统,其目标是成为一个简单�
 		});
 	}];
 ```
-

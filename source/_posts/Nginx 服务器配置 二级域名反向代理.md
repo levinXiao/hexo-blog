@@ -12,11 +12,13 @@ categories: linux
 但是域名指向又存在问题
 于是在google后发现nginx 能很好的解决这个问题
 
+<!-- more -->
+
 现在将这个问题记录下来
 
 Ubuntu安装 Nginx
 ```
-$ sudo apt-get install nginx 
+$ sudo apt-get install nginx
 ```
 
 nginx 的启动和关闭
@@ -47,9 +49,9 @@ server {
     client_max_body_size 10G;
 
     location / {
-     # 这里需要配置的是本地3000端口 
+     # 这里需要配置的是本地3000端口
      # 表示是将本地3000端口反向代理到git.xiaoyuyun.com:80上面
-     # 这样就实现了二级域名的端口转发 
+     # 这样就实现了二级域名的端口转发
      # 这样之后,还需要做的就是将gogs服务配置到本地的3000端口上面
         proxy_pass http://localhost:3000;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

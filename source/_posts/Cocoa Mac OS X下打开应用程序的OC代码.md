@@ -1,6 +1,6 @@
 ---
 title: Cocoa Mac OS X下打开应用程序的OC代码
-date: 2016-08-06 21:14:52
+date: 2017-01-03 21:14:52
 tags: [macOS,oc]
 categories: macOS
 ---
@@ -11,3 +11,5 @@ NSTask *softTask = [[NSTask alloc] init];
 
 [softTask launch];
 ```
+
+<!-- more -->

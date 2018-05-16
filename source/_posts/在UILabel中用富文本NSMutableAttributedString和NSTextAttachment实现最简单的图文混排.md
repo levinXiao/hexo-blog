@@ -1,11 +1,13 @@
 ---
 title: 在UILabel中用富文本NSMutableAttributedString和NSTextAttachment实现最简单的图文混排
-date: 2016-09-12 15:33:28
+date: 2017-09-12 15:33:28
 tags: [iOS,图文混排]
 categories: iOS
 ---
 
 在iOS6之后 UILabel API中添加了一个属性 attributedText
+
+<!-- more -->
 
 ```
 // the underlying attributed string drawn by the label, if set, the label ignores the properties above.

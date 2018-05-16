@@ -11,6 +11,8 @@ A Windows startup  indicatorviewStyle for iOS with Objective-C delegate support
 
 iOS 仿照windows10 开机动画做的一个indicator view视图 动画效果体验极佳
 
+<!-- more -->
+
 #Short Cut
 ![Flipboard playing multiple GIFs](https://github.com/levinXiao/XYW8AnimationIndicatorView/raw/master/XYW8IndicatorView.gif)
 
@@ -25,24 +27,24 @@ iOS 仿照windows10 开机动画做的一个indicator view视图 动画效果体
     animationView.dotColor = [UIColor redColor];
     animationView.delegate = self;
     [self.view addSubview:animationView];
-    
+
     [animationView startAnimating];
-    
+
 ```
 
 ###stop the animation
 
-``` 
+```
 - (void)stopAnimating:(BOOL)animated;
 
 - (void)stopAnimating:(BOOL)animated afterDelay:(NSTimeInterval)delay;
 
-    
+
 ```
 
 ###propertys
 
-``` 
+```
 @interface XYW8IndicatorView : UIView
 
 //set the animating dot backgroundcolor default  set to [UIColor grayColor] if nil also set to [UIColor grayColor]
@@ -56,7 +58,7 @@ iOS 仿照windows10 开机动画做的一个indicator view视图 动画效果体
 //current animating state
 @property (nonatomic,readonly,getter=isAnimating) BOOL animating;
 
-    
+
 ```
 
 ##Full Delegate Support
@@ -95,24 +97,24 @@ if any question or bug  email me with xiaoamani@qq.com China
     animationView.dotColor = [UIColor redColor];
     animationView.delegate = self;
     [self.view addSubview:animationView];
-    
+
     [animationView startAnimating];
-    
+
 ```
 
 ###停止动画
 
-``` 
+```
 - (void)stopAnimating:(BOOL)animated;
 
 - (void)stopAnimating:(BOOL)animated afterDelay:(NSTimeInterval)delay;
 
-    
+
 ```
 
 ###propertys
 
-``` 
+```
 @interface XYW8IndicatorView : UIView
 
 //set the animating dot backgroundcolor default or nil  set to [UIColor grayColor]
@@ -129,7 +131,7 @@ if any question or bug  email me with xiaoamani@qq.com China
 //现在是否处于动画中
 @property (nonatomic,readonly,getter=isAnimating) BOOL animating;
 
-    
+
 ```
 
 ##支持delegate

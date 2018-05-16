@@ -1,6 +1,6 @@
 ---
 title: iOS UIWebView键盘处理(转载)
-date: 2016-08-06 21:14:52
+date: 2017-04-17 21:14:52
 tags: [iOS,oc,键盘]
 categories: iOS
 ---
@@ -15,6 +15,7 @@ http://blog.csdn.net/assholeu/article/details/38714123
 4. 如何在键盘弹出时禁止UIWebView里面的Content向上移动。
 5. 无法在UIWebView中获取到坐标，来计算contentOffset得到想要展示的结果。
 
+<!-- more -->
 
 ##一步一步说明：
 
@@ -28,22 +29,22 @@ http://blog.csdn.net/assholeu/article/details/38714123
         [super viewWillAppear:animated];  
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];  
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];  
-          
+
     }  
-      
+
     - (void)viewWillDisappear:(BOOL)animated {  
         [super viewWillDisappear:animated];  
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];  
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];  
     }  
-      
+
     - (void)keyboardWillShow:(NSNotification *)notification {  
         NSDictionary *userInfo = [notification userInfo];  
         NSValue* value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];  
         CGRect keyboardRect = [value CGRectValue]; // 这里得到了键盘的frame  
         // 你的操作，如键盘出现，控制视图上移等  
     }  
-      
+
     - (void)keyboardWillHide:(NSNotification *)notification {  
         // 获取info同上面的方法  
         // 你的操作，如键盘移除，控制视图还原等  
@@ -68,9 +69,9 @@ self.webView.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnD
 这个方法，我也找了很久，但是还是找到了，感谢强大的网友，代码如下：
 ```
 @interface XXX : UIViewController<UIScrollViewDelegate> // 添加UIScrollViewDelegate， step 1  
-      
+
     self.webView.scrollView.delegate = self; // 注册代理， step 2  
-      
+
     - (UIView*)viewForZoomingInScrollView:(UIScrollView*)scrollView{ // 实现代理方法， step 3  
             return nil;  
     }
@@ -81,7 +82,7 @@ self.webView.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnD
 
 ```
 @interface XXX : UIViewController<UIGestureRecognizerDelegate> // 添加UIGestureRecognizerDelegate， step 1  
-      
+
     // 添加手势， step 2  
     UITapGestureRecognizer *webTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(webTap:)];  
     webTap.numberOfTouchesRequired = 1;  
@@ -89,12 +90,12 @@ self.webView.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnD
     webTap.delegate = self;  
     webTap.cancelsTouchesInView = NO;  
     [self.view addGestureRecognizer:webTap];  
-      
+
     // 设置过滤，ruturn YES为同时接收，至此手势可以透过webView，让你的superView也可以接收到了， step 3  
     -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{  
             return YES;  
     }  
-      
+
     - (void)webTap:(UITapGestureRecognizer *)sender{  
             CGPoint tapPoint = [sender locationInView:self.webView.scrollView]; // 获取相对于webView中的坐标，如果改成self.view则获取相对于superView中的坐标， step 4  
             NSLog(@"tapPoint x:%f y:%f",tapPoint.x,tapPoint.y);  

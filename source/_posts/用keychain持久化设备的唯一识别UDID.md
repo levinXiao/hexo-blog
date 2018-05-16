@@ -10,6 +10,8 @@ categories: iOS
 # CFUUID
 每次调用 CFUUIDCreate 系统都会返回一个全新的唯一 ID. 如果想永久保存这个 ID，需要自己处理，可以一次获取后，存在 NSUserDefaults，Keychain，Pasteboard 等，下次再从这其中取出。
 
+<!-- more -->
+
 ```
 - (NSString *)createUUID {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
@@ -53,11 +55,11 @@ NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 ```
 -(NSString *)getUniqueDeviceIdentifierAsString {
     NSString *appName=[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
- 
+
     NSString *strApplicationUUID = [SAMKeychain passwordForService:appName account:@"incoding"];
     if (strApplicationUUID == nil) {
         strApplicationUUID  = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
- 
+
         NSError *error = nil;
         SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
         query.service = appName;

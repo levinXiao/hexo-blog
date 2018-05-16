@@ -7,6 +7,8 @@ categories: iOS
 
 学过C的同学都知道，C是用0来表示不存在的原始值。而NULL作为空指针，在指针环境中也相当于0值。其实NULL和0的值都是一样的。但是为了目的和用途及容易识别的原因，NULL用于指针和对象，0用于数值。
 
+<!-- more -->
+
 # NULL
 要理解NULL首先得知道这么几个概念：
 
@@ -54,7 +56,7 @@ nil是一个指向不存在的对象指针。也就相当于NULL，虽然两者�
 
 **nil有一个特别的行为就是，它虽然为零，仍然可以向他发送消息。在nil上调用方法都返回一个零值.**
 
-``` 
+```
 NSString *name;
 NSLog(@"%p  %hhd", name, [name isEqualToString:@"CoderKo1o"]); // 0x0 0
 ```
@@ -95,4 +97,3 @@ NULL  |	(void *)0 |	C中的空指针（值为0）
 nil	| (id)0	| Objective-C对象的空指针
 Nil	| (Class)0	| Objective-C类的空指针
 NSNull	| [NSNull null] | 用来表示零值的单独的对象（并非空指针）
-

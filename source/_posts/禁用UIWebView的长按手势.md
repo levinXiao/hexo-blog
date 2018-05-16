@@ -10,12 +10,14 @@ categories: iOS
 
 这时候 如果要禁用这个效果
 
+<!-- more -->
+
 在webview的delegate中加入如下的代码
 
 ```
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     NSLog(@"webViewDidFinishLoad");
-    
+
     [webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
     [webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
 }
