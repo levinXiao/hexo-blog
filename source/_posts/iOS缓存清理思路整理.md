@@ -5,6 +5,10 @@ tags: [iOS,oc]
 categories: oc
 ---
 
+### New info 20180709
+
+## **现已知在iOS 12上无法实现该功能 望悉知** 
+
 ### 获取系统剩余可用的空间
 
 ```objective-c
